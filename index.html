@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILKERY.ART</title>
+    <meta name="description" content="ILKERY.ART - Digital art & video edits">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --text-dim: #666666;
+            --border: #1a1a1a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            mix-blend-mode: difference;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: filter 0.4s ease;
+        }
+
+        .logo:hover {
+            filter: grayscale(0%);
+        }
+
+        nav a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            filter: grayscale(100%);
+            transition: filter 0.6s ease, transform 0.6s ease;
+        }
+
+        .hero-logo:hover {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 400;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .tagline {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+        }
+
+        .ig-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .ig-link:hover {
+            background: var(--text);
+            color: var(--bg);
+        }
+
+        .ig-link svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        .works {
+            padding: 6rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+            margin-bottom: 4rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .post-card {
+            position: relative;
+            background: transparent;
+        }
+
+        .embed-container {
+            position: relative;
+            width: 100%;
+            background: #000;
+            aspect-ratio: 1;
+            overflow: hidden;
+        }
+
+        .embed-container iframe {
+            width: 100% !important;
+            height: 100% !important;
+            border: none !important;
+        }
+
+        .post-info {
+            padding: 1.25rem 0;
+        }
+
+        .post-title {
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .post-description {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.6;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .post-date {
+            color: var(--text-dim);
+        }
+
+        .post-link {
+            color: var(--text);
+            text-decoration: none;
+            opacity: 0.5;
+            transition: opacity 0.3s ease;
+        }
+
+        .post-link:hover {
+            opacity: 1;
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-dim);
+        }
+
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            grid-column: 1 / -1;
+        }
+
+        .loading::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--border);
+            border-top-color: var(--text);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 1.5rem;
+            }
+
+            .logo {
+                width: 36px;
+                height: 36px;
+            }
+
+            .hero-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .works {
+                padding: 4rem 1.5rem;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="#">
+            <img src="ilkery.jpg" alt="ILKERY.ART" class="logo">
+        </a>
+        <nav>
+            <a href="https://www.instagram.com/ilkery.art" target="_blank">Instagram</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="ilkery.jpg" alt="ILKERY.ART" class="hero-logo">
+            <h1>ILKERY.ART</h1>
+            <p class="tagline">Digital Art & Video Edits</p>
+            <a href="https://www.instagram.com/ilkery.art" target="_blank" class="ig-link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+                @ilkery.art
+            </a>
+            <span class="scroll-indicator">Scroll</span>
+        </section>
+
+        <section id="works" class="works">
+            <h2 class="section-title">Works</h2>
+            <div id="posts-container" class="posts-grid">
+                <div class="loading"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 ILKERY.ART</p>
+    </footer>
+
+    <script>
+        const postsData = [
+            {
+                id: 1,
+                title: "HALI MESELESİ: CANLI YAYINDA HESAPLAŞMA!",
+                description: "Canlı yayında itiraf geldi, stüdyo karıştı... @mugeanliatv yine gerçeği ortaya çıkardı.",
+                url: "https://www.instagram.com/p/DVWT9YFjIPp/",
+                date: "2026-03-02",
+                tags: ["edit", "tv", "comedy"]
+            },
+            {
+                id: 2,
+                title: "CRAB WARS",
+                description: "What begins as a simple trip through a quiet supermarket turns into something far greater. In a war sparked by the smallest thing, forgiveness may be the most powerful force of all.",
+                url: "https://www.instagram.com/p/DVUHP8MjEdo/",
+                date: "2026-03-01",
+                tags: ["higgsfield", "ai", "short film"]
+            },
+            {
+                id: 3,
+                title: "FITTIK",
+                description: "Burhan x Ali Rıza Bey Kung Fu Fighting",
+                url: "https://www.instagram.com/p/DVB6W6jDJOE/",
+                date: "2026-02-21",
+                tags: ["edit", "comedy", "tv series"]
+            },
+            {
+                id: 4,
+                title: "Silence.",
+                description: "Some tables are set for two, yet only one truly remains. Between the peeling blue walls and an untouched feast, a memory takes a seat. A short story about the weight of what's left unsaid.",
+                url: "https://www.instagram.com/p/DT4wv2NjAib/",
+                date: "2026-01-24",
+                tags: ["higgsfield", "ai", "short film", "drama"]
+            },
+            {
+                id: 5,
+                title: "ILKERY Rings",
+                description: "3D NFT Art - ILKERY branded torus rings digital artwork",
+                url: "https://www.instagram.com/p/CPhYL58jR4-/",
+                date: "2021-05-31",
+                tags: ["nft", "3d", "digital art"]
+            }
+        ];
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+
+        function createPostCard(post) {
+            return `
+                <article class="post-card">
+                    <div class="embed-container">
+                        <iframe 
+                            src="${post.url}embed" 
+                            width="400" 
+                            height="480" 
+                            frameborder="0" 
+                            scrolling="no" 
+                            allowtransparency="true">
+                        </iframe>
+                    </div>
+                    <div class="post-info">
+                        <h3 class="post-title">${post.title}</h3>
+                        <p class="post-description">${post.description}</p>
+                        <div class="post-meta">
+                            <span class="post-date">${formatDate(post.date)}</span>
+                            <a href="${post.url}" target="_blank" class="post-link">View on Instagram →</a>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderPosts() {
+            const container = document.getElementById('posts-container');
+
+            const sortedPosts = [...postsData].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            const postsHTML = sortedPosts.map(post => createPostCard(post)).join('');
+
+            setTimeout(() => {
+                container.innerHTML = postsHTML;
+            }, 300);
+        }
+
+        document.addEventListener('DOMContentLoaded', renderPosts);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
