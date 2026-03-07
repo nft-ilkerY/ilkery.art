@@ -62,6 +62,12 @@
             filter: grayscale(0%);
         }
 
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         nav a {
             color: var(--text);
             text-decoration: none;
@@ -70,10 +76,18 @@
             text-transform: uppercase;
             opacity: 0.6;
             transition: opacity 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
         }
 
         nav a:hover {
             opacity: 1;
+        }
+
+        nav a svg {
+            width: 13px;
+            height: 13px;
         }
 
         .hero {
@@ -90,7 +104,6 @@
         .hero-logo {
             width: 120px;
             height: 120px;
-            border-radius: 50%;
             object-fit: cover;
             margin-bottom: 2rem;
             filter: grayscale(100%);
@@ -118,7 +131,14 @@
             margin-bottom: 3rem;
         }
 
-        .ig-link {
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .ig-link, .x-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -131,12 +151,12 @@
             transition: all 0.3s ease;
         }
 
-        .ig-link:hover {
+        .ig-link:hover, .x-link:hover {
             background: var(--text);
             color: var(--bg);
         }
 
-        .ig-link svg {
+        .ig-link svg, .x-link svg {
             width: 14px;
             height: 14px;
         }
@@ -152,15 +172,8 @@
         }
 
         @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 0.3;
-            }
-
-            50% {
-                opacity: 0.8;
-            }
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
         }
 
         .works {
@@ -217,12 +230,34 @@
         .post-description {
             font-size: 0.75rem;
             color: var(--text-dim);
-            margin-bottom: 1rem;
+            margin-bottom: 0.85rem;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             line-height: 1.6;
+        }
+
+        .post-stats {
+            display: flex;
+            gap: 1.25rem;
+            margin-bottom: 0.85rem;
+            align-items: center;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            letter-spacing: 0.05em;
+        }
+
+        .stat svg {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
         }
 
         .post-meta {
@@ -281,9 +316,7 @@
         }
 
         @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+            to { transform: rotate(360deg); }
         }
 
         @media (max-width: 768px) {
@@ -294,6 +327,14 @@
             .logo {
                 width: 36px;
                 height: 36px;
+            }
+
+            nav {
+                gap: 1.2rem;
+            }
+
+            nav a span {
+                display: none;
             }
 
             .hero-logo {
@@ -316,25 +357,43 @@
 <body>
     <header>
         <a href="#">
-            <img src="ilkery.jpg" alt="ILKERY.ART" class="logo">
+            <img src="ilkery.png" alt="ILKERY.ART" class="logo">
         </a>
         <nav>
-            <a href="https://www.instagram.com/ilkery.art" target="_blank">Instagram</a>
+            <a href="https://www.instagram.com/ilkery.art" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>Instagram</span>
+            </a>
+            <a href="https://x.com/nft_ilkerY" target="_blank">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                <span>X</span>
+            </a>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <img src="ilkery.jpg" alt="ILKERY.ART" class="hero-logo">
+            <img src="ilkery.png" alt="ILKERY.ART" class="hero-logo">
             <h1>ILKERY.ART</h1>
             <p class="tagline">Digital Art & Video Edits</p>
-            <a href="https://www.instagram.com/ilkery.art" target="_blank" class="ig-link">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path
-                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                </svg>
-                @ilkery.art
-            </a>
+            <div class="social-links">
+                <a href="https://www.instagram.com/ilkery.art" target="_blank" class="ig-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    @ilkery.art
+                </a>
+                <a href="https://x.com/nft_ilkerY" target="_blank" class="x-link">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                    @nft_ilkerY
+                </a>
+            </div>
             <span class="scroll-indicator">Scroll</span>
         </section>
 
@@ -358,7 +417,9 @@
                 description: "Canlı yayında itiraf geldi, stüdyo karıştı... @mugeanliatv yine gerçeği ortaya çıkardı.",
                 url: "https://www.instagram.com/p/DVWT9YFjIPp/",
                 date: "2026-03-02",
-                tags: ["edit", "tv", "comedy"]
+                tags: ["edit", "tv", "comedy"],
+                views: "48.2K",
+                likes: "3.1K"
             },
             {
                 id: 2,
@@ -366,7 +427,9 @@
                 description: "What begins as a simple trip through a quiet supermarket turns into something far greater. In a war sparked by the smallest thing, forgiveness may be the most powerful force of all.",
                 url: "https://www.instagram.com/p/DVUHP8MjEdo/",
                 date: "2026-03-01",
-                tags: ["higgsfield", "ai", "short film"]
+                tags: ["higgsfield", "ai", "short film"],
+                views: "91.7K",
+                likes: "6.4K"
             },
             {
                 id: 3,
@@ -374,7 +437,9 @@
                 description: "Burhan x Ali Rıza Bey Kung Fu Fighting",
                 url: "https://www.instagram.com/p/DVB6W6jDJOE/",
                 date: "2026-02-21",
-                tags: ["edit", "comedy", "tv series"]
+                tags: ["edit", "comedy", "tv series"],
+                views: "134.5K",
+                likes: "11.2K"
             },
             {
                 id: 4,
@@ -382,7 +447,9 @@
                 description: "Some tables are set for two, yet only one truly remains. Between the peeling blue walls and an untouched feast, a memory takes a seat. A short story about the weight of what's left unsaid.",
                 url: "https://www.instagram.com/p/DT4wv2NjAib/",
                 date: "2026-01-24",
-                tags: ["higgsfield", "ai", "short film", "drama"]
+                tags: ["higgsfield", "ai", "short film", "drama"],
+                views: "72.3K",
+                likes: "5.8K"
             },
             {
                 id: 5,
@@ -390,7 +457,9 @@
                 description: "3D NFT Art - ILKERY branded torus rings digital artwork",
                 url: "https://www.instagram.com/p/CPhYL58jR4-/",
                 date: "2021-05-31",
-                tags: ["nft", "3d", "digital art"]
+                tags: ["nft", "3d", "digital art"],
+                views: "12.1K",
+                likes: "874"
             }
         ];
 
@@ -416,6 +485,23 @@
                     <div class="post-info">
                         <h3 class="post-title">${post.title}</h3>
                         <p class="post-description">${post.description}</p>
+                        <div class="post-stats">
+                            <span class="stat">
+                                <!-- Eye / views icon -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                ${post.views}
+                            </span>
+                            <span class="stat">
+                                <!-- Heart / likes icon -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                </svg>
+                                ${post.likes}
+                            </span>
+                        </div>
                         <div class="post-meta">
                             <span class="post-date">${formatDate(post.date)}</span>
                             <a href="${post.url}" target="_blank" class="post-link">View on Instagram →</a>
@@ -427,11 +513,8 @@
 
         function renderPosts() {
             const container = document.getElementById('posts-container');
-
             const sortedPosts = [...postsData].sort((a, b) => new Date(b.date) - new Date(a.date));
-
             const postsHTML = sortedPosts.map(post => createPostCard(post)).join('');
-
             setTimeout(() => {
                 container.innerHTML = postsHTML;
             }, 300);
