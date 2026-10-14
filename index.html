@@ -5,25 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ILKERY.ART</title>
-    <!-- Twitter / X Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@nft_ilkerY">
-<meta name="twitter:creator" content="@nft_ilkerY">
-<meta name="twitter:title" content="ILKERY.ART">
-<meta name="twitter:description" content="Digital Art & Video Edits">
-<meta name="twitter:image" content="https://ilkery.art/ilkery.png">
-
-<!-- Open Graph (Facebook, Discord, WhatsApp vb. için de çalışır) -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ilkery.art">
-<meta property="og:title" content="ILKERY.ART">
-<meta property="og:description" content="Digital Art & Video Edits">
-<meta property="og:image" content="https://ilkery.art/ilkery.png">
-    
     <meta name="description" content="ILKERY.ART - Digital art & video edits">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <style>
         * {
@@ -65,21 +50,16 @@
         }
 
         .logo {
-            width: auto;
-            height: 28px;
-            object-fit: contain;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
             filter: grayscale(100%);
             transition: filter 0.4s ease;
         }
 
         .logo:hover {
             filter: grayscale(0%);
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
         }
 
         nav a {
@@ -90,18 +70,10 @@
             text-transform: uppercase;
             opacity: 0.6;
             transition: opacity 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
         }
 
         nav a:hover {
             opacity: 1;
-        }
-
-        nav a svg {
-            width: 13px;
-            height: 13px;
         }
 
         .hero {
@@ -113,162 +85,82 @@
             text-align: center;
             padding: 2rem;
             position: relative;
-            overflow: hidden;
-        }
-
-        /* Grain overlay */
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-            opacity: 0.04;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        /* Subtle radial glow */
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 70%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .hero > * {
-            position: relative;
-            z-index: 1;
         }
 
         .hero-logo {
-            width: 280px;
-            height: auto;
-            object-fit: contain;
-            margin-bottom: 2.5rem;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
             filter: grayscale(100%);
-            transition: filter 0.8s ease, transform 0.8s ease;
-            opacity: 0;
-            animation: fadeUp 1.2s ease 0.2s forwards;
+            transition: filter 0.6s ease, transform 0.6s ease;
         }
 
         .hero-logo:hover {
             filter: grayscale(0%);
-            transform: scale(1.04);
-        }
-
-        .hero-eyebrow {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.6rem;
-            letter-spacing: 0.5em;
-            text-transform: uppercase;
-            color: var(--text-dim);
-            margin-bottom: 1rem;
-            opacity: 0;
-            animation: fadeUp 1s ease 0.5s forwards;
+            transform: scale(1.05);
         }
 
         .hero h1 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 300;
-            letter-spacing: 0.15em;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 400;
+            letter-spacing: 0.4em;
             text-transform: uppercase;
-            margin-bottom: 0;
-            line-height: 1;
-            opacity: 0;
-            animation: fadeUp 1s ease 0.7s forwards;
-        }
-
-        .hero-divider {
-            width: 1px;
-            height: 48px;
-            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.3), transparent);
-            margin: 2rem auto;
-            opacity: 0;
-            animation: fadeUp 1s ease 0.9s forwards;
+            margin-bottom: 1.5rem;
         }
 
         .tagline {
-            font-family: 'Cormorant Garamond', serif;
-            font-style: italic;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.35);
-            letter-spacing: 0.1em;
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
             margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeUp 1s ease 1s forwards;
         }
 
-        .social-links {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            justify-content: center;
-            opacity: 0;
-            animation: fadeUp 1s ease 1.1s forwards;
-        }
-
-        .ig-link, .x-link {
+        .ig-link {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            color: rgba(255,255,255,0.5);
+            color: var(--text);
             text-decoration: none;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 0.65rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            padding: 0.7rem 1.4rem;
-            border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.4s ease;
-            backdrop-filter: blur(4px);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
         }
 
-        .ig-link:hover, .x-link:hover {
-            color: #fff;
-            border-color: rgba(255,255,255,0.4);
-            background: rgba(255,255,255,0.05);
+        .ig-link:hover {
+            background: var(--text);
+            color: var(--bg);
         }
 
-        .ig-link svg, .x-link svg {
-            width: 12px;
-            height: 12px;
+        .ig-link svg {
+            width: 14px;
+            height: 14px;
         }
 
         .scroll-indicator {
             position: absolute;
             bottom: 3rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.55rem;
-            letter-spacing: 0.35em;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
             color: var(--text-dim);
-            opacity: 0;
-            animation: fadeUp 1s ease 1.4s forwards;
+            animation: pulse 2s ease-in-out infinite;
         }
 
-        .scroll-indicator::after {
-            content: '';
-            display: block;
-            width: 1px;
-            height: 36px;
-            background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
-            animation: scrollLine 2s ease-in-out infinite;
-        }
+        @keyframes pulse {
 
-        @keyframes scrollLine {
-            0%, 100% { opacity: 0.3; transform: scaleY(1); }
-            50% { opacity: 0.8; transform: scaleY(0.6); }
-        }
+            0%,
+            100% {
+                opacity: 0.3;
+            }
 
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            50% {
+                opacity: 0.8;
+            }
         }
 
         .works {
@@ -325,14 +217,13 @@
         .post-description {
             font-size: 0.75rem;
             color: var(--text-dim);
-            margin-bottom: 0.85rem;
+            margin-bottom: 1rem;
             display: -webkit-box;
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
             line-height: 1.6;
         }
-
 
         .post-meta {
             display: flex;
@@ -390,7 +281,9 @@
         }
 
         @keyframes spin {
-            to { transform: rotate(360deg); }
+            to {
+                transform: rotate(360deg);
+            }
         }
 
         @media (max-width: 768px) {
@@ -401,14 +294,6 @@
             .logo {
                 width: 36px;
                 height: 36px;
-            }
-
-            nav {
-                gap: 1.2rem;
-            }
-
-            nav a span {
-                display: none;
             }
 
             .hero-logo {
@@ -425,97 +310,31 @@
                 gap: 2rem;
             }
         }
-        /* Custom cursor */
-        * { cursor: none; }
-
-        .cursor-dot {
-            position: fixed;
-            width: 5px;
-            height: 5px;
-            background: #fff;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-        }
-
-        .cursor-ring {
-            position: fixed;
-            width: 30px;
-            height: 30px;
-            border: 1px solid rgba(255,255,255,0.35);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9998;
-            transform: translate(-50%, -50%);
-            transition: width 0.35s ease, height 0.35s ease, border-color 0.35s ease;
-        }
-
-        .cursor-ring.hovering {
-            width: 50px;
-            height: 50px;
-            border-color: rgba(255,255,255,0.7);
-        }
-
-        a, button { cursor: none; }
-
-        @media (max-width: 768px) {
-            * { cursor: auto; }
-            .cursor-dot, .cursor-ring { display: none; }
-            a, button { cursor: pointer; }
-        }
-
-        /* Parallax scroll */
-        .hero-parallax {
-            will-change: transform;
-        }
-
     </style>
 </head>
 
 <body>
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
     <header>
         <a href="#">
-            <img src="ilkery.png" alt="ILKERY.ART" class="logo">
+            <img src="ilkery.jpg" alt="ILKERY.ART" class="logo">
         </a>
         <nav>
-            <a href="https://www.instagram.com/ilkery.art" target="_blank">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-                <span>Instagram</span>
-            </a>
-            <a href="https://x.com/nft_ilkerY" target="_blank">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg>
-                <span>X</span>
-            </a>
+            <a href="https://www.instagram.com/ilkery.art" target="_blank">Instagram</a>
         </nav>
     </header>
 
     <main>
         <section class="hero">
-            <img src="ilkery.png" alt="ILKERY.ART" class="hero-logo">
-            <p class="hero-eyebrow">Est. 2021 — Istanbul</p>
-            <div class="hero-divider"></div>
+            <img src="ilkery.jpg" alt="ILKERY.ART" class="hero-logo">
+            <h1>ILKERY.ART</h1>
             <p class="tagline">Digital Art & Video Edits</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/ilkery.art" target="_blank" class="ig-link">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                    @ILKERY.ART
-                </a>
-                <a href="https://x.com/nft_ilkerY" target="_blank" class="x-link">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                    </svg>
-                    @NFT_ILKERY
-                </a>
-            </div>
+            <a href="https://www.instagram.com/ilkery.art" target="_blank" class="ig-link">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                        d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                </svg>
+                @ilkery.art
+            </a>
             <span class="scroll-indicator">Scroll</span>
         </section>
 
@@ -533,56 +352,54 @@
 
     <script>
         const postsData = [
-    {
-        id: 0,
-        title: "18 Mart Çanakkale Zaferi",
-        description: "18 Mart Çanakkale Zaferi’nin 111. yılında, Ulu Önder Mustafa Kemal Atatürk’ü ve tüm kahraman şehitlerimizi saygı, rahmet ve minnetle anıyoruz. 🇹🇷",
-        url: "https://www.instagram.com/p/DV_bE86DO1a/",
-        date: "2026-03-18",
-        tags: ["edit"],
-        views: "0",
-        likes: "0"
-    },
-    {
-        id: 1,
-        title: "HALI MESELESİ: CANLI YAYINDA HESAPLAŞMA!",
-        description: "Canlı yayında itiraf geldi, stüdyo karıştı... @mugeanliatv yine gerçeği ortaya çıkardı.",
-        url: "https://www.instagram.com/p/DVWT9YFjIPp/",
-        date: "2026-03-02",
-        tags: ["edit", "tv", "comedy"],
-        views: "48.2K",
-        likes: "3.1K"
-    },
-    {
-        id: 2,
-        title: "CRAB WARS",
-        description: "What begins as a simple trip through a quiet supermarket turns into something far greater. In a war sparked by the smallest thing, forgiveness may be the most powerful force of all.",
-        url: "https://www.instagram.com/p/DVUHP8MjEdo/",
-        date: "2026-03-01",
-        tags: ["higgsfield", "ai", "short film"],
-        views: "91.7K",
-        likes: "6.4K"
-    },
-    {
-        id: 3,
-        title: "FITTIK",
-        description: "Burhan x Ali Rıza Bey Kung Fu Fighting",
-        url: "https://www.instagram.com/p/DVB6W6jDJOE/",
-        date: "2026-02-21",
-        tags: ["edit", "comedy", "tv series"],
-        views: "134.5K",
-        likes: "11.2K"
-    },
-    {
-        id: 4,
-        title: "Silence.",
-        description: "Some tables are set for two, yet only one truly remains. Between the peeling blue walls and an untouched feast, a memory takes a seat. A short story about the weight of what's left unsaid.",
-        url: "https://www.instagram.com/p/DT4wv2NjAib/",
-        date: "2026-01-24",
-        tags: ["higgsfield", "ai", "short film", "drama"],
-        views: "72.3K",
-        likes: "5.8K"
-    }
+            {
+                id: 6,
+                title: "WELCOME TO HELL!",
+                description: "Galatasaray vs Barcelona. Dear Barça fans, enjoy the Bosphorus, try the tea, take some photos. Just don't expect a quiet night at RAMS Park 🦁",
+                url: "https://www.instagram.com/p/DeYk9rBs9QP/",
+                date: "2026-10-11",
+                tags: ["edit", "football", "galatasaray"]
+            },
+            {
+                id: 1,
+                title: "HALI MESELESİ: CANLI YAYINDA HESAPLAŞMA!",
+                description: "Canlı yayında itiraf geldi, stüdyo karıştı... @mugeanliatv yine gerçeği ortaya çıkardı.",
+                url: "https://www.instagram.com/p/DVWT9YFjIPp/",
+                date: "2026-03-02",
+                tags: ["edit", "tv", "comedy"]
+            },
+            {
+                id: 2,
+                title: "CRAB WARS",
+                description: "What begins as a simple trip through a quiet supermarket turns into something far greater. In a war sparked by the smallest thing, forgiveness may be the most powerful force of all.",
+                url: "https://www.instagram.com/p/DVUHP8MjEdo/",
+                date: "2026-03-01",
+                tags: ["higgsfield", "ai", "short film"]
+            },
+            {
+                id: 3,
+                title: "FITTIK",
+                description: "Burhan x Ali Rıza Bey Kung Fu Fighting",
+                url: "https://www.instagram.com/p/DVB6W6jDJOE/",
+                date: "2026-02-21",
+                tags: ["edit", "comedy", "tv series"]
+            },
+            {
+                id: 4,
+                title: "Silence.",
+                description: "Some tables are set for two, yet only one truly remains. Between the peeling blue walls and an untouched feast, a memory takes a seat. A short story about the weight of what's left unsaid.",
+                url: "https://www.instagram.com/p/DT4wv2NjAib/",
+                date: "2026-01-24",
+                tags: ["higgsfield", "ai", "short film", "drama"]
+            },
+            {
+                id: 5,
+                title: "ILKERY Rings",
+                description: "3D NFT Art - ILKERY branded torus rings digital artwork",
+                url: "https://www.instagram.com/p/CPhYL58jR4-/",
+                date: "2021-05-31",
+                tags: ["nft", "3d", "digital art"]
+            }
         ];
 
         function formatDate(dateString) {
@@ -618,8 +435,11 @@
 
         function renderPosts() {
             const container = document.getElementById('posts-container');
+
             const sortedPosts = [...postsData].sort((a, b) => new Date(b.date) - new Date(a.date));
+
             const postsHTML = sortedPosts.map(post => createPostCard(post)).join('');
+
             setTimeout(() => {
                 container.innerHTML = postsHTML;
             }, 300);
@@ -636,44 +456,6 @@
                 }
             });
         });
-
-        // Custom cursor
-        const dot = document.getElementById('cursorDot');
-        const ring = document.getElementById('cursorRing');
-        let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-
-        document.addEventListener('mousemove', e => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            dot.style.left = mouseX + 'px';
-            dot.style.top = mouseY + 'px';
-        });
-
-        function animateRing() {
-            ringX += (mouseX - ringX) * 0.1;
-            ringY += (mouseY - ringY) * 0.1;
-            ring.style.left = ringX + 'px';
-            ring.style.top = ringY + 'px';
-            requestAnimationFrame(animateRing);
-        }
-        animateRing();
-
-        document.querySelectorAll('a, button, img').forEach(el => {
-            el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
-            el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
-        });
-
-        // Parallax: hero content slides up as user scrolls down
-        const heroContent = document.querySelector('.hero');
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const heroChildren = heroContent.querySelectorAll('.hero-logo, .hero-eyebrow, .hero-divider, .tagline, .social-links, .scroll-indicator');
-            heroChildren.forEach(el => {
-                el.style.transform = `translateY(${scrollY * 0.35}px)`;
-                el.style.opacity = Math.max(0, 1 - scrollY / 420);
-            });
-        }, { passive: true });
     </script>
 </body>
 
